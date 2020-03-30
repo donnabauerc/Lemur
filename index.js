@@ -42,7 +42,7 @@ var options = {
       },
     interaction:{
         dragNodes: false,
-        dragView: true,
+        dragView: false,
     },
     layout: {
         randomSeed: 3.1,
@@ -59,11 +59,15 @@ var options = {
         shapeProperties: {
             borderRadius: 60,
         },
-        size: 65,
-    } 
+        margin: 10,
+        
+    }
 };
 
 
 // initialize your network!
 var network = new vis.Network(container, data, options);
-network.focus(2,{scale: 200,});
+network.once('stabilized', function() {
+    var scaleOption = { scale : 2 };
+    network.moveTo(scaleOption);
+})
