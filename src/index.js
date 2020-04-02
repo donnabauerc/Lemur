@@ -28,6 +28,8 @@ var width = document.getElementById("mynetwork").clientWidth;
 var height = document.getElementById("mynetwork").clientHeight;
 
 var options = {
+    width: width + 'px',
+    height: height + 'px',
     groups: {
         backend: {color:{background:'#ffa34d'}},
         mqtt: {color:{background:'#f67575'}},
@@ -75,7 +77,7 @@ network.once('stabilized', function() {
     network.moveTo({
         position: {x: 0, y: 0},
         offset: {x: -width/2, y: -height/2},
-        scale: 0.5,
+        scale: 2,
     })
 })
 
