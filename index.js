@@ -1,10 +1,10 @@
 // create an array with nodes
 var nodes = new vis.DataSet([
-    {id: 1, label: 'Node Backend', group: 'backend'},
-    {id: 2, label: 'MQTT', group: 'mqtt'},
-    {id: 3, label: 'Leonie Web', group: 'frontend'},
-    {id: 4, label: 'Leonie Holo', group: 'frontend'},
-    {id: 5, label: 'Leonie Face \n Recognition', group: 'frontend'}
+    {id: 1, label: 'Node Backend', group: 'backend', x:0 , y:500},
+    {id: 2, label: 'MQTT', group: 'mqtt', x:400 , y:500},
+    {id: 3, label: 'Leonie Web', group: 'frontend', x:700 , y:200},
+    {id: 4, label: 'Leonie Holo', group: 'frontend', x:700 , y:500},
+    {id: 5, label: 'Leonie Face \n Recognition', group: 'frontend', x:700 , y:800}
 ]);
 
 // create an array with edges
@@ -23,14 +23,18 @@ var data = {
     nodes: nodes,
     edges: edges
 };
+
+var width = document.getElementById("mynetwork").clientWidth;
+var height = document.getElementById("mynetwork").clientHeight;
+
 var options = {
     groups: {
         backend: {color:{background:'#ffa34d'}},
         mqtt: {color:{background:'#f67575'}},
         frontend: {color:{background:'#1eb2a6'}}
     },
+    physics: false,
     edges:{
-        arrows: 'to from',
         color: 'white',
         font: '12px arial #ff0000',
         scaling:{
@@ -57,7 +61,7 @@ var options = {
         },
         shape: 'box',
         shapeProperties: {
-            borderRadius: 60,
+            borderRadius: 0,
         },
         margin: 10,
         
@@ -68,6 +72,11 @@ var options = {
 // initialize your network!
 var network = new vis.Network(container, data, options);
 network.once('stabilized', function() {
-    var scaleOption = { scale : 2 };
-    network.moveTo(scaleOption);
+    network.moveTo({
+        position: {x: 0, y: 0},
+        offset: {x: -width/2, y: -height/2},
+        scale: 0.5,
+    })
 })
+
+
