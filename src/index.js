@@ -1,10 +1,13 @@
+var width = document.getElementById("mynetwork").clientWidth; //754 1536
+var height = document.getElementById("mynetwork").clientHeight;
+
 // create an array with nodes
 var nodes = new vis.DataSet([
-    {id: 1, label: 'Node Backend', group: 'backend', x:0 , y:500},
-    {id: 2, label: 'MQTT', group: 'mqtt', x:400 , y:500},
-    {id: 3, label: 'Leonie Web', group: 'frontend', x:700 , y:200},
-    {id: 4, label: 'Leonie Holo', group: 'frontend', x:700 , y:500},
-    {id: 5, label: 'Leonie Face \n Recognition', group: 'frontend', x:700 , y:800}
+    {id: 1, label: 'Node Backend', group: 'backend', x:0 , y:height/3*2},
+    {id: 2, label: 'MQTT', group: 'mqtt', x:400 , y:height/3*2},
+    {id: 3, label: 'Leonie Web', group: 'frontend', x:700 , y:height/3},
+    {id: 4, label: 'Leonie Holo', group: 'frontend', x:700 , y:height/3*2},
+    {id: 5, label: 'Leonie Face \n Recognition', group: 'frontend', x:700 , y:height}
 ]);
 
 // create an array with edges
@@ -24,9 +27,6 @@ var data = {
     edges: edges
 };
 
-var width = document.getElementById("mynetwork").clientWidth;
-var height = document.getElementById("mynetwork").clientHeight;
-
 var options = {
     width: width + 'px',
     height: height + 'px',
@@ -44,7 +44,7 @@ var options = {
         },
         shadow: true,
         smooth: true,
-
+        width: 3,
       },
     interaction:{
         dragNodes: false,
@@ -60,12 +60,13 @@ var options = {
         },
         font: {
             color: '#FFFFFF',
+            size: 30,
         },
         shape: 'box',
         shapeProperties: {
             borderRadius: 0,
         },
-        margin: 10,
+        margin: 20,
         
     }
 };
