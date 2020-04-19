@@ -3,11 +3,16 @@ var height = document.getElementById("mynetwork").clientHeight;
 
 // create an array with nodes
 var nodes = new vis.DataSet([
-    {id: 1, label: 'Node Backend', group: 'backend', x:0 , y:height/3*2},
-    {id: 2, label: 'MQTT', group: 'mqtt', x:400 , y:height/3*2},
-    {id: 3, label: 'Leonie Web', group: 'frontend', x:700 , y:height/3},
-    {id: 4, label: 'Leonie Holo', group: 'frontend', x:700 , y:height/3*2},
-    {id: 5, label: 'Leonie Face \n Recognition', group: 'frontend', x:700 , y:height}
+    {id: 1, label: 'NODE JS\nBackend', group: 'backend', x:300 , y:height/3*2, margin: {left: 45, right: 45, top: 32, bottom: 32}},
+    {id: 2, label: 'MQTT', group: 'mqtt', x:700 , y:height/3*2},
+    {id: 3, label: 'Leonie WEB', group: 'frontend', x:1100 , y:height/3, margin: {left: 20, right: 20}},
+    {id: 4, label: 'Leonie HOLO', group: 'frontend', x:1100 , y:height/3*2, margin: {left: 15, right: 15}},
+    {id: 5, label: 'Leonie Face\nReco.', group: 'frontend', x:1100 , y:height, margin: {left: 30, right: 30, top: 32, bottom: 32}},
+    {id: 6, group: 'icons', shape: 'image', image: {unselected: './assets/icons/cloud.png'}, x:-0 , y:height/3*2},
+    {id: 7, group: 'icons', shape: 'image', image: {unselected: './assets/icons/speaker.png'}, x:1400 , y:height/3-100, imagePadding: {top: 30,left: 30}, size: 90},
+    {id: 8, group: 'icons', shape: 'image', image: {unselected: './assets/icons/microphone.png'}, x:1400 , y:height/3+100, size: 80},
+    {id: 9, group: 'icons', shape: 'image', image: {unselected: './assets/icons/pyramid.png'}, x:1400 , y:height/3*2},
+    {id: 10, group: 'icons', shape: 'image', image: {unselected: './assets/icons/camera.png'}, x:1400 , y:height, imagePadding: {bottom: 30,left: 30}, size: 100}
 ]);
 
 // create an array with edges
@@ -15,7 +20,12 @@ var edges = new vis.DataSet([
     {from: 1, to: 2},
     {from: 2, to: 3},
     {from: 2, to: 4},
-    {from: 2, to: 5}
+    {from: 2, to: 5},
+    {from: 6, to: 1},
+    {from: 3, to: 7},
+    {from: 3, to: 8},
+    {from: 4, to: 9},
+    {from: 5, to: 10}
 ]);
 
 // create a network
@@ -31,43 +41,44 @@ var options = {
     width: width + 'px',
     height: height + 'px',
     groups: {
-        backend: {color:{background:'#ffa34d'}},
-        mqtt: {color:{background:'#f67575'}},
-        frontend: {color:{background:'#1eb2a6'}}
+        backend: {color:{background:'#7D90B5'}},
+        mqtt: {color:{background:'#BAD8FF'}, margin:45},
+        frontend: {color:{background:'#FF975E'}},
+        icons: {size: 90}
     },
     physics: false,
     edges:{
-        color: 'white',
-        font: '12px arial #ff0000',
+        color: 'black',
+        font: '12px MyAsap #000000',
         scaling:{
-          label: true,
+          label: false,
         },
         shadow: true,
         smooth: true,
-        width: 3,
+        width: 2,
       },
     interaction:{
         dragNodes: false,
         dragView: false,
     },
-    layout: {
-        randomSeed: 3.1,
-    },
     nodes: {
         borderWidth: 0,
         scaling: {
-            label: true,
+            label: false,
         },
         font: {
-            color: '#FFFFFF',
+            color: '#000000',
             size: 30,
+            face: 'MyAsap',
         },
         shape: 'box',
         shapeProperties: {
-            borderRadius: 0,
+            borderRadius: 30,
         },
-        margin: 20,
-        
+        margin: {
+            top: 45,
+            bottom: 45,
+        }
     }
 };
 
@@ -83,3 +94,4 @@ network.once('stabilized', function() {
 })
 
 
+console.log(network.getPosition('1'));
