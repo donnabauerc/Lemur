@@ -93,5 +93,14 @@ network.once('stabilized', function() {
     })
 })
 
+function highlightNode(id) {
+    var node = network.body.nodes[id];
+    node.setOptions({
+        borderWidth: 10,
+        color: {
+            border: '#F9D71C',
+        }
+    });
+}
 
-console.log(network.getPosition('1'));
+highlightNode(2);
