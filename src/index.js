@@ -98,9 +98,9 @@ function highlightNode(id) {
     node.setOptions({
         borderWidth: 10,
         color: {
-            border: '#F9D71C',
+            border: '#FFDDA6',
         }
     });
 }
 
-highlightNode(2);
+highlightNode(5);
