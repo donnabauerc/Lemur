@@ -1,0 +1,22 @@
+{
+  "name": "lemur",
+  "version": "1.0.0",
+  "description": "= Lemur Christian Donnabauer 1.0.0, 2020-04-02",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/donnabauerc/lemur.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/donnabauerc/lemur/issues"
+  },
+  "homepage": "https://github.com/donnabauerc/lemur#readme"
+}
