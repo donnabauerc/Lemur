@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/donnabauerc/lemur/issues"
   },
-  "homepage": "https://github.com/donnabauerc/lemur#readme"
+  "homepage": "https://github.com/donnabauerc/lemur#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
