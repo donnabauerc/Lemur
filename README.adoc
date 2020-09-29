@@ -8,9 +8,15 @@ used component, if combined with another project via MQTT. You can also
 display your own system architecture by a syntax, which is inspired by
 PlantUml.
 
-## Installation:
+== Installation:
 * To run the project yourself you need to install NodeJs & NPM
 * Then clone the Repo
 * type ``npm i`` in the root directory of the project
 * finally ``node index.js`` => the server should now be running at
 http://localhost:8080[]
+
+== MQTT:
+* To start the MQTT Broker simply run the `start-mosquitto.sh` script located in the mosquitto-mqtt-broker
+* To subscribe/publish to the Broker you need to install mosquitto-client with `snap install mqtt-explorer`
+* Now you can use the Broker e.g.: `mosquitto_sub -t mqtt/test`, `mosquitto_pub -t mqtt/test -m "Hello MQTT"`
+
